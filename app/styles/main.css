@@ -77,3 +77,8 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Single product */
+.product {
+  min-height: 200px;
+}

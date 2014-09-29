@@ -16,7 +16,16 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  describe('Product List', function(){
+    it('should attach a list of products to the scope', function () {
+      expect(scope.items.length).toBe(13);
+    });
   });
+
+  describe('Shopping Cart', function(){
+    it('should have an empty cart', function(){
+      expect(scope.cart.length).toBe(0)
+    });
+  });
+
 });

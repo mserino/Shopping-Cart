@@ -8,4 +8,14 @@
  *
  * Main module of the application.
  */
-angular.module('shoppingCartApp', []);
+angular.module('shoppingCartApp', [
+    'ngResource',
+    'ngRoute'
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      });
+  });
