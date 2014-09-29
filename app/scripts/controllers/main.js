@@ -37,4 +37,9 @@ angular.module('shoppingCartApp')
       // console.log($scope.cart)
       // $scope.items.splice(index, 1);
     };
+
+    $scope.removeItem = function (item) {
+    	var index = $scope.cart.indexOf(item)
+    	$scope.cart.splice(index, 1)
+    };
   });

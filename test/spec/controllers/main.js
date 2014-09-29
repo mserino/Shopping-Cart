@@ -26,6 +26,20 @@ describe('Controller: MainCtrl', function () {
     it('should have an empty cart', function(){
       expect(scope.cart.length).toBe(0)
     });
+
+    it('can add items', function(){
+      var item = {name: "name", category: "shoes", price: 5.00, quantity: 3}
+      scope.addItem(item);
+      expect(scope.cart.length).toBe(1);
+    });
+
+    it('can remove items', function(){
+      var item = {name: "name", category: "shoes", price: 5.00, quantity: 3}
+      scope.addItem(item);
+      expect(scope.cart.length).toBe(1);
+      scope.removeItem(item);
+      expect(scope.cart.length).toBe(0);
+    })
   });
 
 });

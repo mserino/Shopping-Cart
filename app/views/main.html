@@ -3,9 +3,16 @@
   <h3>Your shopping cart</h3>
   <div ng-show="isEmpty()" class="cart emptycart">The Cart is empty</div>
     <div class="row">
-      <div class="col-md-4" ng-repeat="item in cart track by $index">
-        <h4>{{item.name}}</h4>
-        <p>Category: {{item.category}}</p>
+      <div class="col-md-12" ng-hide="isEmpty()">
+        <div class="col-md-6">Product</div>
+        <div class="col-md-2">Price</div>
+        <div class="col-md-2">Quantity</div>
+      </div>
+      <div class="col-md-12 cart-product" ng-repeat="item in cart track by $index">
+        <div class="col-md-6"><strong class="item-cart-name">{{item.name}}</strong><br>({{item.category}})</small></h4></div>
+        <div class="col-md-2">{{item.price | currency: '£'}}</div>
+        <div class="col-md-2">{{item.quantity}}</div>
+        <div class="col-md-2"><a class="btn btn-default btn-sm rmv-btn" role="button" ng-click="removeItem(item)">Remove</a></div>
       </div>
     </div>
 </div>
