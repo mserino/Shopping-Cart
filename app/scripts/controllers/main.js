@@ -28,11 +28,13 @@ angular.module('shoppingCartApp')
 		];
 
 		$scope.isEmpty = function() {
-			return cart.length === 0
+			return $scope.cart.length === 0
 		};
 
-		$scope.addItem = function (index) {
-      $scope.cart.push($scope.items[index]);
+		$scope.addItem = function (item) {
+			// item.bla = "hello"
+      	$scope.cart.push(item);
+      // console.log($scope.cart)
       // $scope.items.splice(index, 1);
     };
   });

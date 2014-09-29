@@ -2,9 +2,12 @@
 <div class="well">
   <h3>Your shopping cart</h3>
   <div ng-show="isEmpty()" class="cart emptycart">The Cart is empty</div>
-  <ul>
-    <li ng-repeat="item in cart">{{item}}</li>
-  </ul>
+    <div class="row">
+      <div class="col-md-4" ng-repeat="item in cart track by $index">
+        <h4>{{item.name}}</h4>
+        <p>Category: {{item.category}}</p>
+      </div>
+    </div>
 </div>
 
 <div class="row marketing">
@@ -15,7 +18,7 @@
           <p>Category: {{item.category}}</p>
           <p>{{item.price | currency:'£'}}</p>
           <p><strong>{{item.quantity}} left in stock</strong></p>
-          <p><a class="btn btn-default" role="button" ng-click="addItem($index)">Add to cart</a></p>
+          <p><a class="btn btn-default add-btn" role="button" ng-click="addItem(item)">Add to cart</a></p>
         </div>
       </div>
 </div>
