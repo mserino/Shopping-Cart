@@ -81,13 +81,14 @@ describe('angularjs homepage', function() {
       expect(element(by.model('item.desiredQuantity')).getAttribute('value')).toEqual('2');
     });
 
-    // it('selecting quantity different from 1 increases the total', function(){
-    //   ptor.findElements(protractor.By.model('item.desiredQuantity')).then(function(elems) {
-    //     elems[0].clear();
-    //     elems[0].sendKeys("4");
-    //     expect(total).toEqual(' ');
-    //   });
-    // });
+    it('selecting quantity different from 1 increases the total', function(){
+      ptor.findElements(protractor.By.model('item.desiredQuantity')).then(function(elems) {
+        elems[0].clear();
+        elems[0].sendKeys("4");
+      });
+      totalPrice = element(by.css('.total-price')).getText();
+      expect(totalPrice).toEqual('Total price: £438.00');
+    });
     
   });
 });
