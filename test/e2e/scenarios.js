@@ -52,7 +52,7 @@ describe('angularjs homepage', function() {
         elems[0].click();
         elems[1].click();
       });
-    })
+    });
 
     it('can add an item to the cart', function(){
       cartItem = element.all(by.css('.item-cart-name')).first();
@@ -73,5 +73,12 @@ describe('angularjs homepage', function() {
       total = element(by.css('.total-price')).getText();
       expect(total).toEqual("Total price: £141.00");
     });
+
+    it('selecting quantity different from 1 increases the total', function(){
+      var quantity = ptor.findElement(protractor.By.model('item-quantity')).first();
+      quantity.sendKeys(2);
+      expect(total).toEqual(' ');
+    });
+    
   });
 });
