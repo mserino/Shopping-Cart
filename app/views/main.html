@@ -11,11 +11,11 @@
       <div class="col-md-12 cart-product" ng-repeat="item in cart track by $index">
         <div class="col-md-6"><strong class="item-cart-name">{{item.name}}</strong><br>({{item.category}})</small></h4></div>
         <div class="col-md-2">{{item.price | currency: '£'}}</div>
-        <div class="col-md-2">{{item.quantity}}</div>
+        <div class="col-md-2"><input type="text" ng-model="item.desiredQuantity" ng-init="item.desiredQuantity = 1" class="form-control"></div>
         <div class="col-md-2"><a class="btn btn-default btn-sm rmv-btn" role="button" ng-click="removeItem(item)">Remove</a></div>
       </div>
       <div class="col-md-12">
-        <div class="col-md-6 total-price" ng-hide="isEmpty()">Total price: {{total() | currency: '£'}}</div>
+        <div class="col-md-6 total-price" ng-hide="isEmpty()"><h4>Total price: {{total() | currency: '£'}}</h4></div>
       </div>
     </div>
 </div>

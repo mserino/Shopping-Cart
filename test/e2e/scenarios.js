@@ -75,9 +75,11 @@ describe('angularjs homepage', function() {
     });
 
     it('selecting quantity different from 1 increases the total', function(){
-      var quantity = ptor.findElement(protractor.By.model('item-quantity')).first();
-      quantity.sendKeys(2);
-      expect(total).toEqual(' ');
+      ptor.findElements(protractor.By.model('item.desiredQuantity')).then(function(elems) {
+        elems[0].clear();
+        elems[0].sendKeys("4");
+        expect(total).toEqual(' ');
+      });
     });
     
   });

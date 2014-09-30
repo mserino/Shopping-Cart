@@ -32,6 +32,7 @@ angular.module('shoppingCartApp')
 		};
 
 		$scope.addItem = function (item) {
+      
       $scope.cart.push(item);
     };
 
@@ -43,8 +44,20 @@ angular.module('shoppingCartApp')
     $scope.total = function() {
 			var total = 0;
 			for (var i = 0; i < $scope.cart.length; i++) {
-			      total = total + $scope.cart[i].price;
+			      total = total + ($scope.cart[i].price * $scope.cart[i].desiredQuantity);
 			    }
 			return total;
     };
+
+    $scope.containsObject = function(obj, list) {
+			var i;
+			for (i = 0; i < list.length; i++) {
+			    if (list[i] === obj) {
+			        return true;
+			    }else{
+						return false;
+			    };
+			};
+		};
+
   });
