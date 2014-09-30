@@ -32,14 +32,19 @@ angular.module('shoppingCartApp')
 		};
 
 		$scope.addItem = function (item) {
-			// item.bla = "hello"
       	$scope.cart.push(item);
-      // console.log($scope.cart)
-      // $scope.items.splice(index, 1);
     };
 
     $scope.removeItem = function (item) {
     	var index = $scope.cart.indexOf(item)
     	$scope.cart.splice(index, 1)
+    };
+
+    $scope.total = function() {
+			var total = 0;
+			for (var i = 0; i < $scope.cart.length; i++) {
+			      total = total + $scope.cart[i].price;
+			    }
+			return total;
     };
   });

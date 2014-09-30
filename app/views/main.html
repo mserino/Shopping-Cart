@@ -14,6 +14,9 @@
         <div class="col-md-2">{{item.quantity}}</div>
         <div class="col-md-2"><a class="btn btn-default btn-sm rmv-btn" role="button" ng-click="removeItem(item)">Remove</a></div>
       </div>
+      <div class="col-md-12">
+        <div class="col-md-6 total-price" ng-hide="isEmpty()">Total price: {{total() | currency: '£'}}</div>
+      </div>
     </div>
 </div>
 

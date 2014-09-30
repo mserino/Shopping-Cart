@@ -39,7 +39,15 @@ describe('Controller: MainCtrl', function () {
       expect(scope.cart.length).toBe(1);
       scope.removeItem(item);
       expect(scope.cart.length).toBe(0);
-    })
+    });
+
+    it('can calculate the total', function(){
+      var jimmychoo = {name: "Jimmy Choo", category: "shoes", price: 5.00, quantity: 3}
+      var prada = {name: "Prada", category: "shoes", price: 5.00, quantity: 3}
+      scope.addItem(jimmychoo);
+      scope.addItem(prada);
+      expect(scope.total()).toBe(10.00);
+    });
   });
 
 });

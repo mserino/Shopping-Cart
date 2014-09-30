@@ -46,20 +46,20 @@ describe('angularjs homepage', function() {
       products = element.all(by.repeater('item in items'));
     });
 
-    it('can add an item to the cart', function(){
+    // adding two products to the cart
+    beforeEach(function(){
       ptor.findElements(protractor.By.css('.add-btn')).then(function(elems) {
         elems[0].click();
         elems[1].click();
       });
+    })
+
+    it('can add an item to the cart', function(){
       cartItem = element.all(by.css('.item-cart-name')).first();
       expect(cartItem.getText()).toEqual("Almond Toe Court Shoes, Patent Black");
     });
 
     it('can remove an item from the cart', function(){
-      ptor.findElements(protractor.By.css('.add-btn')).then(function(elems) {
-        elems[0].click();
-        elems[1].click();
-      });
       cartItem = element.all(by.css('.item-cart-name')).first();
       expect(cartItem.getText()).toEqual("Almond Toe Court Shoes, Patent Black");
 
@@ -67,6 +67,11 @@ describe('angularjs homepage', function() {
 
       var elem = element(by.cssContainingText('.item-cart-name', 'Almond Toe Court Shoes, Patent Black'));
       expect(elem.isPresent()).toBe(false);
+    });
+
+    it('displays the total price of the objects in the cart', function(){
+      total = element(by.css('.total-price')).getText();
+      expect(total).toEqual("Total price: £141.00");
     });
   });
 });
