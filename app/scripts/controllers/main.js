@@ -27,16 +27,21 @@ angular.module('shoppingCartApp')
 			{name: 'Mid Twist Cut-Out Dress, Pink', category: 'Women’s Formalwear', price: 540.00, quantity: 5}
 		];
 
+		$scope.vouchers = [
+			{name: "five", value: 5},
+			{name: "ten", value: 10}
+		];
+
+		$scope.selectedVouchers = [];
+
 		$scope.isEmpty = function() {
 			return $scope.cart.length === 0
 		};
 
 		$scope.addItem = function (item) {
-      if ($scope.containsObject(item, $scope.cart)) {
-      	console.log('added');
-      	item.desiredQuantity += 1
+      if ($scope.containsObject(item)) {
+      	item.desiredQuantity += 1;
       } else {
-      	console.log('not added');
       	$scope.cart.push(item);
       };
     };
@@ -49,20 +54,25 @@ angular.module('shoppingCartApp')
     $scope.total = function() {
 			var total = 0;
 			for (var i = 0; i < $scope.cart.length; i++) {
-			      total = total + ($scope.cart[i].price * $scope.cart[i].desiredQuantity);
-			    }
+				total = total + ($scope.cart[i].price * $scope.cart[i].desiredQuantity);
+			};
+			for (var i = 0; i < $scope.selectedVouchers.length; i++) {
+				total = total - ($scope.selectedVouchers[i].value)
+			};
 			return total;
     };
 
-    $scope.containsObject = function(obj, list) {
-			var i;
-			for (i = 0; i < list.length; i++) {
-			    if (list[i] === obj) {
-			        return true;
-			    }else{
-						return false;
-			    };
-			};
+		$scope.containsObject = function (obj) {
+		  for (var i = 0; i < $scope.cart.length; i++) {
+		    if ($scope.cart[i] === obj) {
+		      return true;
+		    };
+		  };
+		  return false;
+		};
+
+		$scope.selectVoucher = function(voucher) {
+			$scope.selectedVouchers.push(voucher);
 		};
 
   });

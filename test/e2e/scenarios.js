@@ -89,6 +89,25 @@ describe('angularjs homepage', function() {
       totalPrice = element(by.css('.total-price')).getText();
       expect(totalPrice).toEqual('Total price: £438.00');
     });
+  });
+
+  describe('Vouchers and discounts', function(){
     
+    beforeEach(function(){
+      ptor.findElements(protractor.By.css('.add-btn')).then(function(elems) {
+        elems[0].click();
+        elems[1].click();
+      });
+    });
+
+    it('can add a £5 voucher', function(){
+      total = element(by.css('.total-price')).getText();
+      expect(total).toEqual('Total price: £141.00');
+      ptor.findElements(protractor.By.css('.btn-voucher')).then(function(elems){
+        elems[0].click();
+      });
+      total = element(by.css('.total-price')).getText();
+      expect(total).toEqual("Total price: £136.00");
+    });
   });
 });

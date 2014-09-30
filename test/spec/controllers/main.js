@@ -58,4 +58,24 @@ describe('Controller: MainCtrl', function () {
     });
   });
 
+  describe('Vouchers', function(){
+
+    beforeEach(function(){
+      var jimmychoo = {name: "Jimmy Choo", category: "shoes", price: 5.00, quantity: 3}
+      jimmychoo.desiredQuantity = 1;
+      scope.addItem(jimmychoo);
+    });
+
+    it('should attach a list of vouchers to the scope', function () {
+      expect(scope.vouchers.length).toBe(2);
+    });
+
+    it('£5 voucher takes 5 pounds from the total', function(){
+      expect(scope.total()).toBe(5)
+      var voucher = {name: "five", value: 5};
+      scope.selectVoucher(voucher);
+      expect(scope.total()).toBe(0)
+    });
+  });
+
 });

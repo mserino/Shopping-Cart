@@ -3,20 +3,32 @@
   <h3>Your shopping cart</h3>
   <div ng-show="isEmpty()" class="cart emptycart">The Cart is empty</div>
     <div class="row">
+
       <div class="col-md-12" ng-hide="isEmpty()">
         <div class="col-md-6">Product</div>
         <div class="col-md-2">Price</div>
         <div class="col-md-2">Quantity</div>
       </div>
+
       <div class="col-md-12 cart-product" ng-repeat="item in cart track by $index">
         <div class="col-md-6"><strong class="item-cart-name">{{item.name}}</strong><br>({{item.category}})</small></h4></div>
         <div class="col-md-2">{{item.price | currency: '£'}}</div>
-        <div class="col-md-2"><input type="text" ng-model="item.desiredQuantity" ng-init="item.desiredQuantity = 1" class="form-control item-quantity"></div>
+        <div class="col-md-2"><input type="number" ng-model="item.desiredQuantity" ng-init="item.desiredQuantity = 1" class="form-control item-quantity"></div>
         <div class="col-md-2"><a class="btn btn-default btn-sm rmv-btn" role="button" ng-click="removeItem(item)">Remove</a></div>
       </div>
+
       <div class="col-md-12">
         <div class="col-md-6 total-price" ng-hide="isEmpty()"><h4>Total price: {{total() | currency: '£'}}</h4></div>
       </div>
+
+      <div class="col-md-12">
+        <div>Redeem a voucher:<br>
+        <span ng-repeat="voucher in vouchers" class="btn btn-default btn-voucher" ng-click="selectVoucher(voucher)">
+          {{voucher.value | currency: '£'}}
+        </span>
+        </div>
+      </div>
+
     </div>
 </div>
 
