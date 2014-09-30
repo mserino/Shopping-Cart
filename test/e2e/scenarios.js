@@ -74,13 +74,20 @@ describe('angularjs homepage', function() {
       expect(total).toEqual("Total price: £141.00");
     });
 
-    it('selecting quantity different from 1 increases the total', function(){
-      ptor.findElements(protractor.By.model('item.desiredQuantity')).then(function(elems) {
-        elems[0].clear();
-        elems[0].sendKeys("4");
-        expect(total).toEqual(' ');
+    it('if the element added to the cart is already present, increases the quantity by 1', function(){
+      ptor.findElements(protractor.By.css('.add-btn')).then(function(elems) {
+        elems[0].click();
       });
+      expect(element(by.model('item.desiredQuantity')).getAttribute('value')).toEqual('2');
     });
+
+    // it('selecting quantity different from 1 increases the total', function(){
+    //   ptor.findElements(protractor.By.model('item.desiredQuantity')).then(function(elems) {
+    //     elems[0].clear();
+    //     elems[0].sendKeys("4");
+    //     expect(total).toEqual(' ');
+    //   });
+    // });
     
   });
 });

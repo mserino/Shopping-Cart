@@ -32,8 +32,13 @@ angular.module('shoppingCartApp')
 		};
 
 		$scope.addItem = function (item) {
-      
-      $scope.cart.push(item);
+      if ($scope.containsObject(item, $scope.cart)) {
+      	console.log('added');
+      	item.desiredQuantity += 1
+      } else {
+      	console.log('not added');
+      	$scope.cart.push(item);
+      };
     };
 
     $scope.removeItem = function (item) {
