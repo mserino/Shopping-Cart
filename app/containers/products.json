@@ -3,78 +3,91 @@
 		"name": "Almond Toe Court Shoes, Patent Black",
 		"category": "Women’s Footwear",
 		"price": 99.00,
-		"quantity": 5
+		"quantity": 5,
+		"imgurl": "http://basicallyimcomplicated.com/wp-content/uploads/2013/11/2cd8f404.jpg"
 	},
 	{
 		"name": "Suede Shoes, Blue",
 		"category": "Women’s Footwear",
 		"price": 42.00,
-		"quantity": 4
+		"quantity": 4,
+		"imgurl": "http://img.costumecraze.com/images/vendors/pleaser/KING-01-BL-Mens-Blue-Suede-King-Shoes-large.jpg"
 	},
 	{
 		"name": "Leather Driver Saddle Loafers, Tan",
 		"category": "Men’s Footwear",
 		"price": 34.00,
-		"quantity": 12
+		"quantity": 12,
+		"imgurl": "http://resources.shopstyle.com/sim/2c/cb/2ccb0e71a209f2cce355886018198b3c/tommy-hilfiger-amalfi-8a-leather-penny-driver-shoe.jpg"
 	},
 	{
 		"name": "Flip Flops, Red",
 		"category": "Men’s Footwear",
 		"price": 19.00,
-		"quantity": 6
+		"quantity": 6,
+		"imgurl": "http://www.powderrooms.com/wp-content/uploads/2013/10/top_c_ruby_red.jpg"
 	},
 	{
 		"name": "Flip Flops, Blue",
 		"category": "Men’s Footwear",
 		"price": 19.00,
-		"quantity": 0
+		"quantity": 0,
+		"imgurl": "http://www.kindredsole.com/media/catalog/product/cache/1/image/600x/9df78eab33525d08d6e5fb8d27136e95/h/a/havaianas_top_blue_sky_flip_flops.jpg"
 	},
 	{
 		"name": "Gold Button Cardigan, Black",
 		"category": "Women’s Casualwear",
 		"price": 167.00,
-		"quantity": 6
+		"quantity": 6,
+		"imgurl": "http://johnlewis.scene7.com/is/image/JohnLewis/001331299alt1?$prod_exlrg$"
 	},
 	{
 		"name": "Cotton Shorts, Medium Red",
 		"category": "Women’s Casualwear",
 		"price": 30.00,
-		"quantity": 5
+		"quantity": 5,
+		"imgurl": "http://www.strictly-kids.co.uk/images/_lib/60-sale-sooki-baby-toddler-boys-red-cotton-denim-shorts-3001693-0-1335256257000.jpg"
 	},
 	{
 		"name": "Fine Stripe Short Sleeve Shirt, Grey",
 		"category": "Men’s Casualwear",
 		"price": 49.00,
-		"quantity": 9
+		"quantity": 9,
+		"imgurl": "https://d38r3tbvwkical.cloudfront.net/images/25/picture/25725_1.jpg?c=1408380321"
 	},
 	{
 		"name": "Fine Stripe Short Sleeve Shirt, Green",
 		"category": "Men’s Casualwear",
 		"price": 39.99,
-		"quantity": 3
+		"quantity": 3,
+		"imgurl": "http://www.cwclothes.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/t/pts11grn-flat.jpg"
 	},
 	{
 		"name": "Sharkskin Waistcoat, Charcoal",
 		"category": "Men’s Formalwear",
 		"price": 75.00,
-		"quantity": 2
+		"quantity": 2,
+		"imgurl": "http://www.birtchnells.co.uk/images/products/scott-slim-fit-charcoal-sharkskin-suit-jacket-rFlR.jpg"
 	},
 	{
 		"name": "Lightweight Patch Pocket Blazer, Deer",
 		"category": "Men’s Formalwear",
 		"price": 175.50,
-		"quantity": 1
+		"quantity": 1,
+		"imgurl": "http://cdnb.lystit.com/photos/2012/07/24/reiss-deer-lightweight-patch-pkt-blazer-product-1-4269143-518146599_large_flex.jpeg"
 	},
 	{
 		"name": "Bird Print Dress, Black",
 		"category": "Women’s Formalwear",
 		"price": 270.00,
-		"quantity": 10
+		"quantity": 10,
+		"imgurl": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=61463924"
 	},
 	{
 		"name": "Mid Twist Cut-Out Dress, Pink",
 		"category": "Women’s Formalwear",
 		"price": 540.00,
-		"quantity": 5
+		"quantity": 5,
+		"imgurl": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=112691479"
 	}
 ]

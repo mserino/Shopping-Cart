@@ -30,16 +30,18 @@
 
     </div>
 </div>
-
-<div class="row marketing">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4 product" ng-repeat="item in items">
-          <h4>{{item.name}}</h4>
-          <p>Category: {{item.category}}</p>
-          <p>{{item.price | currency:'£'}}</p>
-          <p><strong class="item-quantity">{{item.quantity}} left in stock</strong></p>
-          <p><a class="btn btn-default add-btn" role="button" ng-click="addItem(item)" ng-disabled="outOfStock(item)">Add to cart</a></p>
+<div>
+  <div class="row marketing">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4 product" ng-repeat="item in items">
+            <h4>{{item.name}}</h4>
+            <img ng-src="{{item.imgurl}}" height="100px">
+            <p>Category: {{item.category}}</p>
+            <p>{{item.price | currency:'£'}}</p>
+            <p><strong class="item-quantity">{{item.quantity}} left in stock</strong></p>
+            <p><a class="btn btn-default add-btn" role="button" ng-click="addItem(item)" ng-disabled="outOfStock(item)">Add to cart</a></p>
+          </div>
         </div>
-      </div>
+  </div>
 </div>
