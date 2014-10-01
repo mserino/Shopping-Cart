@@ -68,7 +68,6 @@ angular.module('shoppingCartApp')
     $scope.removeItem = function (item) {
     	var index = $scope.cart.indexOf(item)
     	$scope.cart.splice(index, 1)
-    	$scope.reset(item);
     };
 
     $scope.total = function() {
