@@ -28,8 +28,9 @@ angular.module('shoppingCartApp')
 		];
 
 		$scope.vouchers = [
-			{name: "five", value: 5},
-			{name: "ten", value: 10}
+			{value: 5, spending_requirement: 0, clothing_required: " ", description: "£5 off"},
+			{value: 10, spending_requirement: 50, clothing_required: " ", description: "£10 off if you spend £50"},
+			{value: 15, spending_requirement: 75, clothing_required: "Footwear", description: "£15 off if you spend £75 and buy one footwear"}
 		];
 
 		$scope.selectedVouchers = [];
@@ -71,8 +72,26 @@ angular.module('shoppingCartApp')
 		  return false;
 		};
 
-		$scope.selectVoucher = function(voucher) {
-			$scope.selectedVouchers.push(voucher);
+		$scope.clothingRequirement = function(obj, cart) {
+			for (var i = 0; i < cart.length; i++){
+				if ( (cart[i].category).indexOf(obj.clothing_required) > -1 ) {
+				  return true;
+				};
+			};
+			return false;
 		};
 
+		$scope.selectVoucher = function(voucher) {
+			$scope.buttonClicked = false;
+			if(($scope.total() >= voucher.spending_requirement) && ($scope.clothingRequirement(voucher, $scope.cart))) {
+					$scope.selectedVouchers.push(voucher);
+					
+					$scope.voucherMessage = "Your voucher has been accepted"
+					$scope.buttonClicked = true;
+					$scope.validVoucher = 'success';
+			} else {
+				$scope.voucherMessage = "Sorry, the voucher is invalid"
+				$scope.validVoucher = 'danger';
+			}
+		};
   });
