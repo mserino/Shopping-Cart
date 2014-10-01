@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/mserino/Shopping-Cart/badges/gpa.svg)](https://codeclimate.com/github/mserino/Shopping-Cart)
+
 Shopping Cart
 =============
 
@@ -28,3 +30,12 @@ test/spec/controllers -> Unit tests
 `git clone https://github.com/mserino/Shopping-Cart`
 
 `cd Shopping-Cart`
+
+`npm install`
+
+`bower install`
+
+###Run tests
+`npm run protractor`
+
+``
