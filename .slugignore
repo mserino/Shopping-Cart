@@ -1,5 +1,5 @@
-/node_modules/grunt-karma/
-/node_modules/protractor
-/node_modules/karma/
-/node_modules/karma-jasmine/
-/node_modules/karma-phantomjs-launcher
+node_modules/grunt-karma/
+node_modules/protractor
+node_modules/karma/
+node_modules/karma-jasmine/
+node_modules/karma-phantomjs-launcher
