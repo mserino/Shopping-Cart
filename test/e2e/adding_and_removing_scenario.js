@@ -3,7 +3,7 @@ describe('Adding and removing items from the cart', function(){
 
   beforeEach(function(){
     ptor = protractor.getInstance();
-    ptor.get('app/index.html')
+    ptor.get('/')
   });
   
   beforeEach(function(){

@@ -3,7 +3,7 @@ describe('angularjs homepage', function() {
 
   beforeEach(function(){
     ptor = protractor.getInstance();
-    ptor.get('app/index.html')
+    ptor.get('/')
   });
 
   it('should have a title', function() {

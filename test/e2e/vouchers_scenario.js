@@ -3,7 +3,7 @@ describe('Vouchers and discounts', function(){
 
   beforeEach(function(){
     ptor = protractor.getInstance();
-    ptor.get('app/index.html')
+    ptor.get('/')
   });
 
   it('can add a £5 voucher', function(){
