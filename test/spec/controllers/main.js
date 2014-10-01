@@ -1,25 +1,19 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: MainCtrl', function (){
+  var MainCtrl, scope, ctrl, $httpBackend, items;
 
   // load the controller's module
-  beforeEach(module('shoppingCartApp'));
+    beforeEach(module('shoppingCartApp'));
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+      $httpBackend = _$httpBackend_;
+      items = $httpBackend.expectGET('containers/products.json');
 
-  var MainCtrl,
-    scope;
+      scope = $rootScope.$new();
+      ctrl = $controller('MainCtrl', {$scope: scope});
+    }));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-    });
-  }));
-
-  describe('Product List', function(){
-    it('should attach a list of products to the scope', function () {
-      expect(scope.items.length).toBe(13);
-    });
-  });
-  
+    // it('should attach a list of products', function(){
+    // 	expect(scope.items).toEqual(" ")
+    // })
 });

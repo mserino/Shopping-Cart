@@ -7,25 +7,21 @@
  * # MainCtrl
  * Controller of the shoppingCartApp
  */
-angular.module('shoppingCartApp')
-  .controller('MainCtrl', function ($scope) {
-		$scope.cart = [];
 
-		$scope.items = [
-			{name: 'Almond Toe Court Shoes, Patent Black', category: 'Women’s Footwear', price: 99.00, quantity: 5},
-			{name: 'Suede Shoes, Blue', category: 'Women’s Footwear', price: 42.00, quantity: 4},
-			{name: 'Leather Driver Saddle Loafers, Tan', category: 'Men’s Footwear', price: 34.00, quantity: 12},
-			{name: 'Flip Flops, Red', category: 'Men’s Footwear', price: 19.00, quantity: 6},
-			{name: 'Flip Flops, Blue', category: 'Men’s Footwear', price: 19.00, quantity: 0},
-			{name: 'Gold Button Cardigan, Black', category: 'Women’s Casualwear', price: 167.00, quantity: 6},
-			{name: 'Cotton Shorts, Medium Red', category: 'Women’s Casualwear', price: 30.00, quantity: 5},
-			{name: 'Fine Stripe Short Sleeve Shirt, Grey', category: 'Men’s Casualwear', price: 49.00, quantity: 9},
-			{name: 'Fine Stripe Short Sleeve Shirt, Green', category: 'Men’s Casualwear', price: 39.99, quantity: 3}, // sale! 49.99
-			{name: 'Sharkskin Waistcoat, Charcoal', category: 'Men’s Formalwear', price: 75.00, quantity: 2},
-			{name: 'Lightweight Patch Pocket Blazer, Deer', category: 'Men’s Formalwear', price: 175.50, quantity: 1},
-			{name: 'Bird Print Dress, Black', category: 'Women’s Formalwear', price: 270.00, quantity: 10},
-			{name: 'Mid Twist Cut-Out Dress, Pink', category: 'Women’s Formalwear', price: 540.00, quantity: 5}
-		];
+angular.module('shoppingCartApp')
+
+	.controller('MainCtrl', ['$scope', '$http',
+		function ($scope, $http) {
+
+    $http.get('containers/products.json').success(function(data) {
+      $scope.items = data;
+    });
+
+    // $http.get('containers/vouchers.json').success(function(data) {
+    //   $scope.vouchers = data;
+    // });
+
+		$scope.cart = [];
 
 		$scope.vouchers = [
 			{value: 5, spending_requirement: 0, clothing_required: " ", description: "£5 off"},
@@ -35,9 +31,30 @@ angular.module('shoppingCartApp')
 
 		$scope.selectedVouchers = [];
 
+		// $scope.reset = function(item) {
+		// 	$scope.items.item = angular.copy($scope.items);
+  //   };
+
+  // 	$scope.orig = function(item){
+  // 		angular.copy(item)
+  // 	};
+
+		// $scope.reset = function(item) {
+  //      // Example with 1 argument
+  //     $sc
+		// 	$scope.item = $scope.orig(item)
+		// };
+
 		$scope.isEmpty = function() {
 			return $scope.cart.length === 0
 		};
+
+    $scope.outOfStock = function(item){
+    	if(item.quantity === 0){
+    		return true;
+    	}
+    	return false;
+    };
 
 		$scope.addItem = function (item) {
       if ($scope.containsObject(item)) {
@@ -45,11 +62,13 @@ angular.module('shoppingCartApp')
       } else {
       	$scope.cart.push(item);
       };
+      item.quantity -= 1;
     };
 
     $scope.removeItem = function (item) {
     	var index = $scope.cart.indexOf(item)
     	$scope.cart.splice(index, 1)
+    	$scope.reset(item);
     };
 
     $scope.total = function() {
@@ -94,4 +113,4 @@ angular.module('shoppingCartApp')
 				$scope.validVoucher = 'danger';
 			}
 		};
-  });
+  }]);

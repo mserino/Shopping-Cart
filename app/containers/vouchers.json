@@ -1,0 +1,20 @@
+[
+  {
+     "value": 5,
+     "spending_requirement": 0,
+     "clothing_required": " ",
+     "description": "£5 off"
+  },
+  {
+    "value": 10,
+    "spending_requirement": 50,
+    "clothing_required": " ",
+    "description": "£10 off if you spend £50"
+  },
+  {
+    "value": 15,
+    "spending_requirement": 75,
+    "clothing_required": "Footwear",
+    "description": "£15 off if you spend £75 and buy one footwear"
+  }
+]

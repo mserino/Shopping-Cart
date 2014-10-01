@@ -43,7 +43,10 @@ describe('Adding and removing items from the cart', function(){
     ptor.findElements(protractor.By.css('.add-btn')).then(function(elems) {
       elems[0].click();
     });
-    expect(element(by.model('item.desiredQuantity')).getAttribute('value')).toEqual('2');
+
+    ptor.findElements(protractor.By.model('item.desiredQuantity')).then(function(elems) {
+      expect(elems[0].getAttribute('value')).toEqual('2')
+    });
   });
 
   it('selecting quantity different from 1 increases the total', function(){
@@ -53,5 +56,16 @@ describe('Adding and removing items from the cart', function(){
     });
     totalPrice = element(by.css('.total-price')).getText();
     expect(totalPrice).toEqual('Total price: £438.00');
+  });
+
+
+  it('when the product is selected the quantity decreases', function(){
+    ptor.findElements(protractor.By.css('.add-btn')).then(function(elems) {
+      elems[0].click();
+      elems[0].click();
+      elems[0].click();
+    });
+    var elem = element(by.cssContainingText('.item-quantity', '1 left in stock'));
+    expect(elem.isPresent()).toBe(true);
   });
 });

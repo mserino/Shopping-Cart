@@ -13,7 +13,7 @@
       <div class="col-md-12 cart-product" ng-repeat="item in cart track by $index">
         <div class="col-md-6"><strong class="item-cart-name">{{item.name}}</strong><br>({{item.category}})</small></h4></div>
         <div class="col-md-2">{{item.price | currency: '£'}}</div>
-        <div class="col-md-2"><input type="number" ng-model="item.desiredQuantity" ng-init="item.desiredQuantity = 1" class="form-control item-quantity"></div>
+        <div class="col-md-2"><input type="number" ng-model="item.desiredQuantity" ng-init="item.desiredQuantity = 1" class="form-control item-quantity" ng-disabled="outOfStock(item)"></div>
         <div class="col-md-2"><a class="btn btn-default btn-sm rmv-btn" role="button" ng-click="removeItem(item)">Remove</a></div>
       </div>
 
@@ -22,12 +22,11 @@
       </div>
 
       <div class="col-md-12" ng-hide="isEmpty()">
-        <div>Redeem a voucher:<br>
-        <span ng-repeat="voucher in vouchers" class="btn btn-default btn-voucher valid-{{validVoucher}}" ng-click="selectVoucher(voucher)" ng-disabled="buttonClicked">
-          {{voucher.value | currency: '£'}}
-        </span>
-        <span ng-show="selectVoucher" class="label label-{{validVoucher}}">{{voucherMessage}}</span>
+        <div>Redeem a voucher:</div>
+        <div ng-repeat="voucher in vouchers" class="btn btn-default btn-voucher valid-{{validVoucher}}" ng-click="selectVoucher(voucher)" ng-disabled="buttonClicked">
+          {{voucher.description}}
         </div>
+        <span ng-show="selectVoucher" class="label label-{{validVoucher}}">{{voucherMessage}}</span>
       </div>
 
     </div>
@@ -40,8 +39,8 @@
           <h4>{{item.name}}</h4>
           <p>Category: {{item.category}}</p>
           <p>{{item.price | currency:'£'}}</p>
-          <p><strong>{{item.quantity}} left in stock</strong></p>
-          <p><a class="btn btn-default add-btn" role="button" ng-click="addItem(item)">Add to cart</a></p>
+          <p><strong class="item-quantity">{{item.quantity}} left in stock</strong></p>
+          <p><a class="btn btn-default add-btn" role="button" ng-click="addItem(item)" ng-disabled="outOfStock(item)">Add to cart</a></p>
         </div>
       </div>
 </div>
