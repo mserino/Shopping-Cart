@@ -17,10 +17,6 @@ angular.module('shoppingCartApp')
       $scope.items = data;
     });
 
-    // $http.get('containers/vouchers.json').success(function(data) {
-    //   $scope.vouchers = data;
-    // });
-
 		$scope.cart = [];
 
 		$scope.vouchers = [
@@ -31,19 +27,7 @@ angular.module('shoppingCartApp')
 
 		$scope.selectedVouchers = [];
 
-		// $scope.reset = function(item) {
-		// 	$scope.items.item = angular.copy($scope.items);
-  //   };
-
-  // 	$scope.orig = function(item){
-  // 		angular.copy(item)
-  // 	};
-
-		// $scope.reset = function(item) {
-  //      // Example with 1 argument
-  //     $sc
-		// 	$scope.item = $scope.orig(item)
-		// };
+		$scope.totalItems = $scope.cart.length;
 
 		$scope.isEmpty = function() {
 			return $scope.cart.length === 0

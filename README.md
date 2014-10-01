@@ -4,7 +4,17 @@ Shopping Cart
 =============
 
 Frontend webapp displaying a list of products with name, category and price.
-Can add the item to the cart, can remove the item from the cart.
+
+- Can add and remove the items to the cart.
+- The total price is shown on the page and is update every time a new item is added.
+- The user can redeem a voucher only if is allowed to.
+- The quantity in stock decreases every time an item is added, and if is out of stock the user cannot add anymore.
+
+Built completely in front-end, with AngularJs.
+
+Doesn't have server or database.
+
+One-page only.
 
 ###Technologies
 - AngularJS
@@ -35,7 +45,17 @@ test/spec/controllers -> Unit tests
 
 `bower install`
 
+`grunt serve`
+
+go to: `http://localhost:9000`
+
 ###Run tests
+Integration tests:
+
 `npm run protractor`
 
-``
+Unit tests:
+
+`npm start`
+
+`npm test`
