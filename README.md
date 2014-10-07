@@ -1,5 +1,3 @@
-[![Code Climate](https://codeclimate.com/github/mserino/Shopping-Cart/badges/gpa.svg)](https://codeclimate.com/github/mserino/Shopping-Cart)
-
 Shopping Cart
 =============
 
