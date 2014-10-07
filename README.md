@@ -5,7 +5,7 @@ Shopping Cart
 
 Frontend webapp displaying a list of products with name, category and price.
 
-- Can add and remove the items to the cart.
+- Can add and remove the items to the cart. 
 - The total price is shown on the page and is update every time a new item is added.
 - The user can redeem a voucher only if is allowed to.
 - The quantity in stock decreases every time an item is added, and if is out of stock the user cannot add anymore.
